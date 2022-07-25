@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Teams from "./components/Teams";
+import Drivers from "./components/Drivers";
+import Races from "./components/Races";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import { useState } from "react";
+import { DataProvider } from "./context/DataContext";
+
+
 
 function App() {
+
+  const [mode, setMode] = useState(true)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <DataProvider>
+      <div className={ mode ? 'dark-mode' : 'light-mode' }>
+        <Navbar mode={mode} setMode={setMode} />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/drivers" element={<Drivers />}></Route>
+          <Route path="/teams" element={<Teams />}></Route>
+          <Route path="/races" element={<Races />}></Route>
+        </Routes>
+        <Footer />
+      </div>
+      </DataProvider>
+    </BrowserRouter>
   );
 }
 

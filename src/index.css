@@ -1,13 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --primary: #150050;
+  --secondary: #f2f2f2;
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+.dark-mode {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+.light-mode {
+  background-color: var(--secondary);
+  color: var(--primary);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+/* SPINNER */
+.spinner {
+  --gap: 5px;
+  --clr: #6366f1;
+  --height: 23px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+ }
+ 
+ .spinner span {
+  background: var(--clr);
+  width: 6px;
+  height: var(--height);
+  animation: grow 1s ease-in-out infinite;
+ }
+ 
+ .spinner span:nth-child(2) {
+  animation: grow 1s ease-in-out 0.15s infinite;
+ }
+ 
+ .spinner span:nth-child(3) {
+  animation: grow 1s ease-in-out 0.3s infinite;
+ }
+ 
+ .spinner span:nth-child(4) {
+  animation: grow 1s ease-in-out 0.475s infinite;
+ }
+ 
+ @keyframes grow {
+  0%,100% {
+   transform: scaleY(1);
+  }
+ 
+  50% {
+   transform: scaleY(1.8);
+  }
+ }
+ 
+ /* TOGGLE SWITCH */
+.switch {
+  --button-width: 2.5em;
+  --button-height: 1.5em;
+  --toggle-diameter: 1.1em;
+  --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+  --toggle-shadow-offset: 10px;
+  --toggle-wider: 3em;
+  --color-grey: var(--secondary);
+  --color-green: var(--secondary);
+  border: 2px solid var(--primary);
+  border-radius: var(--button-height);
+  cursor: pointer;
+ }
+ 
+ .slider {
+  display: inline-block;
+  width: var(--button-width);
+  height: var(--button-height);
+  background-color: var(--color-grey);
+  border-radius: calc(var(--button-height) / 2);
+  position: relative;
+  transition: 0.3s all ease-in-out;
+ }
+ 
+ .slider::after {
+  content: "";
+  display: inline-block;
+  width: var(--toggle-diameter);
+  height: var(--toggle-diameter);
+  background-color: var(--primary);
+  border-radius: calc(var(--toggle-diameter) / 2);
+  position: absolute;
+  top: var(--button-toggle-offset);
+  transform: translateX(var(--button-toggle-offset));
+  box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+  transition: 0.3s all ease-in-out;
+ }
+ 
+ .switch input[type="checkbox"]:checked + .slider {
+  background-color: var(--color-green);
+ }
+ 
+ .switch input[type="checkbox"]:checked + .slider::after {
+  transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+  box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+ }
+ 
+ .switch input[type="checkbox"] {
+  display: none;
+ }
+ 
+ .switch input[type="checkbox"]:active + .slider::after {
+  width: var(--toggle-wider);
+ }
+ 
+ .switch input[type="checkbox"]:checked:active + .slider::after {
+  transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+ }
+ 
