@@ -12,7 +12,7 @@ const Drivers = () => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '1955b6d797mshb95ec902b36914ap1d4591jsn679e797f929b',
+        'X-RapidAPI-Key': `${process.env.REACT_APP_RAPIDAPI_KEY}`,
         'X-RapidAPI-Host': 'formula-18.p.rapidapi.com'
       }
     };
