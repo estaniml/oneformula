@@ -12,7 +12,6 @@ const Races = () => {
   const { 
     season,
     country,
-    grandPrix,
     setGrandPrix
   } = useContext(DataContext)
 
