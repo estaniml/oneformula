@@ -16,11 +16,11 @@ const Select = () => {
     <>
             <label
                 htmlFor="countries"
-                className="block mb-2 text-xl font-medium  "
+                className="block text-lg font-medium  "
             >Select the Season</label>
             <select
                 id="countries" 
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-lg  focus:ring-indigo-500 focus:indigo-blue-500 block w-full p-2.5"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-lg  focus:ring-indigo-500 focus:indigo-blue-500 block w-full p-1"
                 onChange={ ({target}) => setSeason(target.value) }
             >
                 <option value={""}>Select</option>
@@ -35,11 +35,11 @@ const Select = () => {
 
             <label
                 htmlFor="countries"
-                className="block mb-2 text-xl font-medium  "
+                className="block mt-2 text-lg font-medium  "
             >Select the Race</label>
             <select
                 id="countries" 
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-lg  focus:ring-indigo-500 focus:indigo-blue-500 block w-full p-2.5"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-lg  focus:ring-indigo-500 focus:indigo-blue-500 block w-full p-1"
                 onChange={ ({target}) => setCountry(target.value) }
             >
                 <option value={""}>Select</option>

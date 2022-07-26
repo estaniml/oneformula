@@ -3,7 +3,7 @@ import React from 'react'
 const Team = ({team}) => {
     const {POS, PTS, Team } = team
   return (
-    <tr className=" border-b bg-gray-900 border-indigo-700 text-white text-xl">
+    <tr className=" border-b bg-gray-900 border-indigo-700 text-white text-sm md:text-lg">
         <td className="text-center text-white py-4 px-6">
             {POS}
         </td>

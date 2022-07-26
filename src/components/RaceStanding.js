@@ -50,7 +50,7 @@ const RaceStanding = () => {
     <div className="my-10 overflow-x-auto mx-auto relative ">
         { !loading ? 
           <>
-            <a target="_blank" href={standings.url} className='text-2xl font-bold uppercase' rel="noreferrer">
+            <a target="_blank" href={standings.url} className='text-xl font-bold uppercase' rel="noreferrer">
                 {standings.raceName} - {standings.season}
             </a>
             <h4 className='text-xl font-bold mb-10'>Round: {standings.round}</h4>

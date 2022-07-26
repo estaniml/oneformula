@@ -31,7 +31,7 @@ const Drivers = () => {
   return (
     <div className='w-full sm:w-3/5 mx-auto my-10 min-h-screen px-4'>
       
-      <h1 className='text-2xl font-bold my-10 text-center uppercase'>Drivers standings season 2022</h1>
+      <h1 className='text-xl font-bold my-10 text-center uppercase'>Drivers standings season 2022</h1>
 
       <div className="overflow-x-auto relative shadow-md ">
       { loading ? <Spinner /> :
