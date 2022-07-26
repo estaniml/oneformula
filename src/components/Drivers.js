@@ -7,12 +7,14 @@ const Drivers = () => {
   const [standings, setStandings] = useState([])
   const [loading, setLoading] = useState(false)
 
+  
+
   useEffect(() => {
     setLoading(true)
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': `${process.env.REACT_APP_RAPIDAPI_KEY}`,
+        'X-RapidAPI-Key': `${process.env.REACT_APP_RAPID_KEY}`,
         'X-RapidAPI-Host': 'formula-18.p.rapidapi.com'
       }
     };
@@ -27,7 +29,7 @@ const Drivers = () => {
   
 
   return (
-    <div className='w-4/5 sm:w-4/5 mx-auto my-10 min-h-screen'>
+    <div className='w-full sm:w-3/5 mx-auto my-10 min-h-screen px-4'>
       
       <h1 className='text-2xl font-bold my-10 text-center uppercase'>Drivers standings season 2022</h1>
 

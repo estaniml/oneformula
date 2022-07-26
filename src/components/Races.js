@@ -21,23 +21,23 @@ const Races = () => {
 
     if(season !== '' && country !== '') {
       setGrandPrix({season, country})
-      console.log(grandPrix)
-      return
     } else {
+      setTimeout(() => {
+        setError(false)
+      }, 3000)
       setError(true)
     }
-
 
   }
 
   return (
-    <div className='w-3/5 mx-auto my-10 min-h-screen'>
+    <div className='w-full sm:w-3/5 mx-auto my-10 min-h-screen px-4'>
       <form
         className='flex flex-col gap-3 '
         onSubmit={handleSubmit}
       >
         <Select />
-        { error && <Error>Please select a season and country</Error> }
+        { error ? <Error><AiOutlineWarning className='text-2xl ' />Please select a season and country</Error> : null}
         <button
           type='submit'
           className='border bg-indigo-500 text-white border-indigo-800 w-1/3 mx-auto rounded-sm h-10 mt-4 transition-all  hover:bg-indigo-600 hover:border-none '

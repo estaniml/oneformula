@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import RaceDriver from './RaceDriver'
 import Spinner from './Spinner'
 import { DataContext } from '../context/DataContext'
+import Error from './Error'
 
 const RaceStanding = () => {
   
@@ -18,7 +19,7 @@ const RaceStanding = () => {
     const options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': 'b85faf3784mshb97cc1e2eef84ddp1210f6jsn1a46bb73684f',
+        'X-RapidAPI-Key': `${process.env.REACT_APP_RAPID_KEY}`,
         'X-RapidAPI-Host': 'formula-18.p.rapidapi.com'
       }
     };
@@ -47,7 +48,6 @@ const RaceStanding = () => {
 
   return (
     <div className="my-10 overflow-x-auto mx-auto relative ">
-      { error ? <p>This event is coming soon</p> : null }
         { !loading ? 
           <>
             <a target="_blank" href={standings.url} className='text-2xl font-bold uppercase' rel="noreferrer">
@@ -77,9 +77,10 @@ const RaceStanding = () => {
                   <tbody>
                         { drivers.map((driver, index) => (
                           <RaceDriver key={index} driver={driver} />
-                        ))}
+                          ))}
                   </tbody>
               </table> 
+                          { error ? <Error>This event is coming soon</Error> : null }
           
           </> 
             : <Spinner />

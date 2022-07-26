@@ -1,9 +1,10 @@
 import 'animate.css';
 
 const Home = () => {
+    
   return (
     <>
-        <div className='w-4/5 mx-auto min-h-screen'>
+        <div className='w-full sm:w-4/5 mx-auto my-10 min-h-screen px-4'>
             <h1 className='text-4xl my-20 font-bold text-center'>FORMULA 1 - Championship</h1>
 
             <div className='my-10 grid lg:grid-cols-2 border border-indigo-800 hover:scale-105 transition-all duration-500 ease-in-out animate__animated animate__fadeInRight'>
